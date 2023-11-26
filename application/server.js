@@ -94,13 +94,12 @@ app.post("/asset/create", async (req,res)=>{
         await gateway.disconnect();
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);
-        res_str = `{"resultcode":"failed", "msg":"자산생성이 실패하였습니다.."}`
-    res.json(JSON.parse(res_str))
+        res_str = `{"resultcode":"failed", "msg":"자산생성 실패"}`
+        res.json(JSON.parse(res_str))
+    
     }
 
-
     // 블록체인 연동후 체인코드 호출이 정상적으로 잘 처리된경우
-
     // 그 실행 결과를 받아와서 response를 만들어 웹 브라우저에 전달
     res_str = `{"resultcode":"success", "msg":"자산생성이 정상적으로 완료되었습니다."}`
     res.json(JSON.parse(res_str))

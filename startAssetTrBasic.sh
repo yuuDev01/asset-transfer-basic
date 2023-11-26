@@ -17,13 +17,15 @@ sleep 5
 ./deployCC.sh
 
 popd
-
+# ccp pk(ca의 인증서 일부)를 자동으로 수정하도록 함
 pushd application/ccp
+
+./ccp-generate.sh
 
 popd
 
-pushd application
+push application
 
 rm -rf wallet
 
-popd
+popd 

@@ -21,10 +21,12 @@ app.get("/", (req,res)=>{
     res.render("index")
 })
 
+// get방식으로 url요청이 오면 다른 view 렌더링
+// 생성
 app.get("/asset/create", (req,res)=>{
     res.render("assetcreate")
 })
-
+//조회
 app.get("/asset/read", (req,res)=>{
     res.render("assetread")
 })
@@ -103,5 +105,21 @@ app.post("/asset/create", async (req,res)=>{
     res_str = `{"resultcode":"success", "msg":"자산생성이 정상적으로 완료되었습니다."}`
     res.json(JSON.parse(res_str))
 });
+// 수정
+app.get("/asset/update",(req, res)=>{
+    res.render("assetupdate")
+})
+// 삭제
+app.get("/asset/delete",(req, res)=>{
+    res.render("assetdelete")
+})
+// 자산 거래
+app.get("/asset/transfer",(req, res)=>{
+    res.render("assettransfer")
+})
+// 모든 자산조회
+app.get("/asset/allread",(req, res)=>{
+    res.render("assetallread")
+})
 app.listen(PORT, HOST)
 console.log(`Running on http://${HOST}:${PORT}`)
